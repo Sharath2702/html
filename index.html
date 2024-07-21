@@ -6,7 +6,7 @@
     <title>Welcome to Stark Industries</title>
     <style>
         body {
-            background: #2d2d2d; /* Dark background for a techy look */
+            background: #1e1e1e; /* Dark background */
             color: #fff;
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -18,16 +18,16 @@
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9); /* Darker background for contrast */
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Gold shadow for tech feel */
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.8); /* Blue glow */
             animation: fadeIn 2s ease-in-out;
         }
 
         h1 {
             font-size: 2.5em;
-            color: #ffcc00; /* Stark Industries Gold */
+            color: #00bfff; /* Light sky blue for glowing effect */
             margin: 0;
         }
 
@@ -39,18 +39,18 @@
         input[type="text"] {
             padding: 10px;
             font-size: 1em;
-            border: 2px solid #ffcc00; /* Stark Industries Gold */
+            border: 2px solid #00bfff; /* Light sky blue border */
             border-radius: 5px;
             margin: 10px;
-            background-color: #333; /* Dark input background */
-            color: #fff; /* Light text color */
+            background-color: #333; /* Dark background for input */
+            color: #fff;
         }
 
         input[type="submit"] {
             padding: 10px 20px;
             font-size: 1em;
             color: #fff;
-            background-color: #e94e77; /* Stark Red */
+            background-color: #00bfff; /* Light sky blue */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -58,13 +58,13 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #d84315; /* Darker Stark Red */
+            background-color: #1e90ff; /* Dodger blue on hover */
         }
 
         .welcome-message {
             font-size: 1.5em;
             margin-top: 20px;
-            color: #ffcc00; /* Stark Industries Gold */
+            color: #00bfff; /* Light sky blue for glowing effect */
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -72,7 +72,7 @@
             padding: 10px 20px;
             font-size: 1em;
             color: #fff;
-            background-color: #00796b; /* Stark Green */
+            background-color: #1e90ff; /* Dodger blue */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -80,7 +80,7 @@
         }
 
         button:hover {
-            background-color: #004d40; /* Darker Stark Green */
+            background-color: #4169e1; /* Royal blue on hover */
         }
 
         @keyframes fadeIn {
@@ -112,12 +112,16 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.form-section').style.display = 'block'; // Show the form on page load
+        });
+
         document.getElementById('nameForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
             var name = document.getElementById('name').value;
             document.querySelector('.form-section').style.display = 'none';
             document.querySelector('.welcome-section').style.display = 'block';
-            document.getElementById('message').innerText = Welcome, ${name}! We're thrilled to have you here.;
+            document.getElementById('message').innerText = `Welcome, ${name}! We are thrilled to have you here.`;
         });
 
         function goBack() {
@@ -125,8 +129,6 @@
             document.querySelector('.welcome-section').style.display = 'none';
             document.getElementById('name').value = '';
         }
-        // Show the form section on page load
-        document.querySelector('.form-section').style.display = 'block';
     </script>
 </body>
 </html>
