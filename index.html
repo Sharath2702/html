@@ -3,57 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressive Welcome Page</title>
+    <title>Welcome to Stark Industries</title>
     <style>
         body {
+            background: #2d2d2d; /* Dark background for a techy look */
+            color: #fff;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f06, #ff9a9e);
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            animation: backgroundAnimation 10s infinite alternate;
+            text-align: center;
         }
 
         .container {
-            text-align: center;
-            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Gold shadow for tech feel */
+            animation: fadeIn 2s ease-in-out;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
+            color: #ffcc00; /* Stark Industries Gold */
             margin: 0;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
         }
 
-        p {
-            font-size: 1.5em;
-            margin-top: 10px;
-            opacity: 0;
-            animation: fadeIn 3s 1s forwards;
+        .form-section,
+        .welcome-section {
+            display: none;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 20px;
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ffcc00; /* Stark Industries Gold */
+            border-radius: 5px;
+            margin: 10px;
+            background-color: #333; /* Dark input background */
+            color: #fff; /* Light text color */
+        }
+
+        input[type="submit"] {
             padding: 10px 20px;
-            font-size: 1.2em;
+            font-size: 1em;
             color: #fff;
-            background-color: #ff6347;
+            background-color: #e94e77; /* Stark Red */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.3s, background-color 0.3s;
-            animation: bounce 1s 2s forwards;
+            transition: background-color 0.3s ease;
         }
 
-        .button:hover {
-            background-color: #ff4500;
-            transform: scale(1.1);
+        input[type="submit"]:hover {
+            background-color: #d84315; /* Darker Stark Red */
+        }
+
+        .welcome-message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ffcc00; /* Stark Industries Gold */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #00796b; /* Stark Green */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004d40; /* Darker Stark Green */
         }
 
         @keyframes fadeIn {
@@ -66,34 +93,40 @@
                 transform: translateY(0);
             }
         }
-
-        @keyframes bounce {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes backgroundAnimation {
-            0% {
-                background: linear-gradient(135deg, #f06, #ff9a9e);
-            }
-            100% {
-                background: linear-gradient(135deg, #ff9a9e, #f06);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Our Website!</h1>
-        <p>We are excited to have you here. Enjoy exploring!</p>
-        <a href="#" class="button">Get Started</a>
+        <div class="form-section">
+            <h1>Welcome to Stark Industries!</h1>
+            <form id="nameForm">
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="welcome-section">
+            <h1>Sharath Industries Welcomes You!</h1>
+            <p id="message" class="welcome-message"></p>
+            <button onclick="goBack()">Go Back</button>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var name = document.getElementById('name').value;
+            document.querySelector('.form-section').style.display = 'none';
+            document.querySelector('.welcome-section').style.display = 'block';
+            document.getElementById('message').innerText = Welcome, ${name}! We're thrilled to have you here.;
+        });
+
+        function goBack() {
+            document.querySelector('.form-section').style.display = 'block';
+            document.querySelector('.welcome-section').style.display = 'none';
+            document.getElementById('name').value = '';
+        }
+        // Show the form section on page load
+        document.querySelector('.form-section').style.display = 'block';
+    </script>
 </body>
 </html>
