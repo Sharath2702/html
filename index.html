@@ -1,46 +1,64 @@
 <html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello World Program</title>
-  <style>
-    body {
-      background-color: #f0f8ff; /* Light background color */
-      font-family: Arial, sans-serif; /* Modern font */
-      color: #333; /* Text color */
-      text-align: center; /* Center align text */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            background-color: #fdf6e3; /* Classic light beige */
+            color: #333; /* Classic dark text color */
+            font-family: 'Georgia', serif; /* Classic serif font */
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        h1 {
+            color: #2e8b57; /* Sea green */
+        }
 
-    h1 {
-      color: #ff6347; /* Tomato color */
-      background-color: #fff5ee; /* Seashell background */
-      padding: 10px;
-      border-radius: 8px;
-    }
+        input[type="text"] {
+            border: 2px solid #4682b4; /* Steel blue border */
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+        }
 
-    h2 {
-      color: #4682b4; /* Steelblue color */
-      background-color: #e6e6fa; /* Lavender background */
-      padding: 8px;
-      border-radius: 6px;
-    }
+        input[type="submit"] {
+            background-color: #ff4500; /* Orange red */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    h3 {
-      color: #32cd32; /* Lime green color */
-      background-color: #fffacd; /* Lemon chiffon background */
-      padding: 6px;
-      border-radius: 4px;
-    }
-
-    .container {
-      margin: 20px;
-    }
-  </style>
+        input[type="submit"]:hover {
+            background-color: #ff6347; /* Tomato color on hover */
+        }
+        
+        .welcome-message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #483d8b; /* Dark slate blue */
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hello World</h1>
-    <h2>This site is deployed using AWS</h2>
-    <h3>This user is very glad to see that the code freking works :)</h3>
-  </div>
+    <h1>Welcome!</h1>
+    <form id="welcomeForm">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="message" class="welcome-message"></div>
+
+    <script>
+        document.getElementById('welcomeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            var name = document.getElementById('name').value;
+            var message = 'Hello, ' + name + '! Welcome to our website.';
+            document.getElementById('message').innerText = message;
+        });
+    </script>
 </body>
 </html>
